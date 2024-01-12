@@ -58,6 +58,9 @@ export const apiSlice = createApi({
         // then attempt to get the details
         if (defaultPokemonUrl) {
           const defaultPokemonDetails = await baseQuery(defaultPokemonUrl)
+          if (defaultPokemonDetails.error) {
+            return { error: defaultPokemonDetails.error }
+          }
           if (defaultPokemonDetails.data) {
             const pokemon = defaultPokemonDetails.data as Pokemon
             spriteUrl = pokemon.sprites.front_default || ""

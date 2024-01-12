@@ -9,18 +9,16 @@ export default function Details() {
   const { data, isError, isLoading, isFetching } =
     useGetSpeciesDetailQuery(selectedId)
 
+  const name = data?.names.find((name) => {
+    return name.language.name === "en"
+  })?.name
+
   return (
     <>
       {!isLoading && (
         <div className={styles.detailsBody}>
           <div className={styles.namePlate}>
-            <h2>
-              {
-                data?.names.find((name) => {
-                  return name.language.name === "en"
-                })?.name
-              }
-            </h2>
+            <h2>{!isError && name}</h2>
           </div>
           <div
             className={`${styles.spriteContainer} ${
@@ -28,8 +26,8 @@ export default function Details() {
             }`}
           >
             {isError && "An error occurred"}
-            {data && !isFetching && (
-              <img src={data?.spriteUrl} alt={`A sprite of ${data?.name}`} />
+            {data && !isFetching && !isError && (
+              <img src={data?.spriteUrl} alt={`A sprite of ${name}`} />
             )}
           </div>
           <div className={styles.infoPane}></div>

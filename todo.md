@@ -10,6 +10,7 @@
   - Highlight pokemon in list
     - pokeball marker or border?
     - grey pokeball hover state?
+      - borders are easier for now
 
 # Alpha
 
@@ -46,5 +47,9 @@
   - excuse to use redux?
 - [ ] mobile friendly using css grid
   - as good a time as any to learn
+- [ ] Update pokedex list marker to be pokeballs
+  - seems cooler?
+- [x] error state bug when there is an error selecting pokemon for details pane
+  - The old sprite and name still appear, along with 'an error occurred'
 
 # Won't do
