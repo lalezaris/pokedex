@@ -25,14 +25,16 @@ export default function Search() {
     <div className={styles.searchBody}>
       <input
         value={searchValue}
-        onChange={(e) => setSearchValue(e.target.value)}
+        onChange={(e) => setSearchValue(e.target.value.toLowerCase())}
         placeholder="Filter Pokémon"
       />
       {data && (
         <ul className={styles.pokemonList}>
           {data
-            ?.filter((species) =>
-              species.name.includes(searchValue.toLowerCase()),
+            ?.filter(
+              (species) =>
+                species.name.includes(searchValue) ||
+                paddedPokedexNumber(species.number).includes(searchValue),
             )
             .map((species) => (
               <li key={species.number}>

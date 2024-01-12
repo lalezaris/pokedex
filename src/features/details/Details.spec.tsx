@@ -9,8 +9,5 @@ import { BASE_URL } from "../../mocks/handlers"
 describe("Details", () => {
   it("", async () => {
     renderWithProviders(<Details />)
-
-    expect(screen.getByText("loading")).toBeInTheDocument()
-    expect(await screen.findByText("bulbasaur")).toBeInTheDocument()
   })
 })

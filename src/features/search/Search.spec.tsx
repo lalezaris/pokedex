@@ -40,8 +40,10 @@ describe("Search", () => {
     expect(screen.getAllByRole("listitem")).toHaveLength(20)
 
     fireEvent.change(input, { target: { value: "bulbasaur" } })
-    const item = screen.getByRole("listitem")
-    expect(item).toHaveTextContent("bulbasaur")
+    expect(screen.getByRole("listitem")).toHaveTextContent("bulbasaur")
+
+    fireEvent.change(input, { target: { value: "0002" } })
+    expect(screen.getByRole("listitem")).toHaveTextContent("ivysaur")
   })
   it("pads pokemon number correctly", async () => {
     server.use(
