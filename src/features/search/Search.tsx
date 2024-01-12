@@ -18,7 +18,7 @@ export default function Search() {
   }
 
   return (
-    <div>
+    <div className={styles.searchBody}>
       <input
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}

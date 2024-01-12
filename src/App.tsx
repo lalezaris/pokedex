@@ -1,14 +1,14 @@
 import React from "react"
-import "./App.css"
+import styles from "./App.module.scss"
 import Search from "./features/search/Search"
 
 function App() {
   return (
     <>
-      <header>
-        <h1>Pokedex</h1>
+      <header className={styles.header}>
+        <h1>Pokédex</h1>
       </header>
-      <body>
+      <body className={styles.body}>
         <Search />
       </body>
       <footer>

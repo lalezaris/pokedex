@@ -1,3 +1,52 @@
+$white: #f8f8f8;
+$black: #111111;
+$lightGray: #e0e0e0;
+$gray: #a8a8a8;
+$darkGray: #585850;
+$red: #e83030;
+$lightRed: #f898a0;
+$darkRed: #c02028;
+$darkestRed: #901020;
+
 .pokemonList {
   text-transform: capitalize;
+}
+
+.searchBody {
+  grid-area: 1 / 2 / 4 / 3;
+
+  background-color: $white;
+  color: $darkGray;
+
+  margin: 0.25rem;
+  outline: 0.25rem solid $black;
+  border-left: 2rem solid $red;
+  // background: $red;
+  // background: linear-gradient(
+  //   180deg,
+  //   $red 0%,
+  //   $red 60%,
+  //   $darkRed 60%,
+  //   $darkRed 70%,
+  //   $darkestRed 70%,
+  //   $darkestRed 100%
+  // );
+  border-radius: 0.5rem;
+
+  input {
+    width: calc(100% - 2.5rem);
+  }
+
+  ul {
+    border-left: 0.25rem solid $lightRed;
+    padding-left: 0.5rem;
+    height: calc(100% - 1.25rem);
+
+    list-style-type: none;
+    margin-top: 0;
+    li {
+      margin-top: 0.25rem;
+    }
+    overflow-y: auto;
+  }
 }

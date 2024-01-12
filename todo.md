@@ -4,7 +4,7 @@
 - [x] basic search form
   - filter list of pokemon
 - [ ] pokemon details page
-  - add router
+  - add router?
   - display pokemon sprite, name, pokedex number
     - need to figure out how to handle for species with multiple varieties?
     - use dream_world.front_default sprite
@@ -25,12 +25,14 @@
 - [ ] add abilities to details page
 - [ ] attack moves to details page
 - [ ] make it fancy
+  - cleanup search box styles
+  - maybe look like this: https://essentialsdocs.fandom.com/wiki/Pok%C3%A9dex?file=PokedexList.png
 - [ ] evolution chain to details page
 - [ ] species varieties to details page
 - [ ] cleanup boilerplate code
 - [x] setup linter
+- [ ] global sass variables
+- [ ] seen/owned counter?
+  - blur names until viewed? then count as seen?
 
 # Won't do
-
-- Display images of pokemon species on search page
-  - Pokemon is wild now and have different varieties, and I don't feel like solving the problem of picking the right sprite or displaying all the varieties.

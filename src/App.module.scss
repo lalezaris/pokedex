@@ -1,0 +1,42 @@
+$white: #f8f8f8;
+$lightGray: #e0e0e0;
+$gray: #a8a8a8;
+$darkGray: #585850;
+$red: #e83030;
+$lightRed: #f898a0;
+$darkRed: #c02028;
+$darkestRed: #901020;
+
+.header {
+  background: $red;
+  background: linear-gradient(
+    180deg,
+    $red 0%,
+    $red 60%,
+    $darkRed 60%,
+    $darkRed 70%,
+    $darkestRed 70%,
+    $darkestRed 100%
+  );
+  text-align: center;
+}
+
+.body {
+  margin: auto;
+  padding: 0.25rem;
+  background-color: $white;
+  width: 500px;
+  height: 400px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 8fr 2fr;
+  grid-column-gap: 0.25rem;
+  grid-row-gap: 0.25rem;
+}
+
+// .div1 { grid-area: 1 / 2 / 4 / 3; } pokemon list
+// .div2 { grid-area: 1 / 1 / 4 / 2; } pokemon details
+// .div3 { grid-area: 3 / 1 / 4 / 2; } seen/owned panel
+// .div4 { grid-area: 2 / 1 / 3 / 2; } pokemon sprite
+// .div5 { grid-area: 1 / 1 / 2 / 2; } pokemon name
