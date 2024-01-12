@@ -12,10 +12,13 @@
 
 # Alpha
 
-- [ ] track queries made in current session
+- [ ] track pokemon queries made in current session
   - update redux store to handle history
 - [ ] add history view
+  - Pokedex screen with list of previously viewed pokemon
+  - Replace the search pane? Add tabs?
 - [ ] re-visit old searches
+  - interacting with history pane behaves simliar to search pane
 
 # Backlog
 
@@ -39,6 +42,7 @@
 - [ ] seen/owned counter?
   - blur names until viewed? then count as seen?
   - excuse to use redux?
-- [ ] mobile friendly
+- [ ] mobile friendly using css grid
+  - as good a time as any to learn
 
 # Won't do
