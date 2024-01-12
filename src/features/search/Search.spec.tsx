@@ -4,6 +4,7 @@ import Search from "./Search"
 import { renderWithProviders } from "../../utils/testUtils"
 import { server } from "../../mocks/node"
 import { HttpResponse, http } from "msw"
+import pokemonSpecies from "../../mocks/pokemonSpecies.json"
 import { BASE_URL } from "../../mocks/handlers"
 
 describe("Search", () => {
@@ -11,7 +12,7 @@ describe("Search", () => {
     renderWithProviders(<Search />)
 
     expect(screen.getByText("loading")).toBeInTheDocument()
-    expect(await screen.findByText("bulbasaur")).toBeInTheDocument()
+    expect(await screen.findByText("0001 bulbasaur")).toBeInTheDocument()
   })
   it("displays loading while fetching, then error if api call fails", async () => {
     server.use(
@@ -32,7 +33,7 @@ describe("Search", () => {
     renderWithProviders(<Search />)
 
     expect(screen.getByText("loading")).toBeInTheDocument()
-    expect(await screen.findByText("bulbasaur")).toBeInTheDocument()
+    expect(await screen.findByText("0001 bulbasaur")).toBeInTheDocument()
 
     const input = screen.getByRole<HTMLInputElement>("textbox")
     expect(input.value).toBe("")
@@ -41,5 +42,40 @@ describe("Search", () => {
     fireEvent.change(input, { target: { value: "bulbasaur" } })
     const item = screen.getByRole("listitem")
     expect(item).toHaveTextContent("bulbasaur")
+  })
+  it("pads pokemon number correctly", async () => {
+    server.use(
+      http.get(`${BASE_URL}/pokemon-species`, () => {
+        return HttpResponse.json({
+          ...pokemonSpecies,
+          results: [
+            {
+              name: "one",
+              url: "https://pokeapi.co/api/v2/pokemon-species/1/",
+            },
+            {
+              name: "ten",
+              url: "https://pokeapi.co/api/v2/pokemon-species/10/",
+            },
+            {
+              name: "hundred",
+              url: "https://pokeapi.co/api/v2/pokemon-species/100/",
+            },
+            {
+              name: "thousand",
+              url: "https://pokeapi.co/api/v2/pokemon-species/1000/",
+            },
+          ],
+        })
+      }),
+    )
+
+    renderWithProviders(<Search />)
+
+    const results = await screen.findAllByRole("listitem")
+    expect(results[0]).toHaveTextContent("0001 one")
+    expect(results[1]).toHaveTextContent("0010 ten")
+    expect(results[2]).toHaveTextContent("0100 hundred")
+    expect(results[3]).toHaveTextContent("1000 thousand")
   })
 })

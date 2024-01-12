@@ -6,6 +6,10 @@ import styles from "./Search.module.scss"
 const Loading = () => <div>loading</div>
 const Error = () => <div>an error occurred</div>
 
+const paddedPokedexNumber = (number: number): string => {
+  return String(number).padStart(4, "0")
+}
+
 export default function Search() {
   const { data, isLoading, error } = useGetSpeciesQuery()
 
@@ -26,12 +30,14 @@ export default function Search() {
       />
       {data && (
         <ul className={styles.pokemonList}>
-          {data?.results
-            .filter((species) =>
+          {data
+            ?.filter((species) =>
               species.name.includes(searchValue.toLowerCase()),
             )
-            .map((species, index) => (
-              <li key={index}>{species.name}</li>
+            .map((species) => (
+              <li key={species.number}>
+                {paddedPokedexNumber(species.number)} {species.name}
+              </li>
             ))}
         </ul>
       )}

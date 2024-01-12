@@ -5,10 +5,11 @@
   - filter list of pokemon
 - [ ] pokemon details pane
   - display pokemon sprite, name, pokedex number
-    - need to figure out how to handle for species with multiple varieties?
+    - need to figure out how to handle for species with multiple varieties? (is_default flag?)
     - use front_default sprite
   - Highlight pokemon in list
     - pokeball marker or border?
+    - grey pokeball hover state?
 
 # Alpha
 
@@ -23,9 +24,10 @@
 # Backlog
 
 - [ ] persist history across sessions
-- [ ] basic pokemon information
+- [ ] basic pokemon information page
   - able to click on pokemon to view details
   - type, description, height, weight, etc
+  - add router and basic navigation to navigate back to main/overview screen
 - [ ] add abilities to details page
 - [ ] attack moves to details page
 - [ ] make it fancy
@@ -33,7 +35,7 @@
   - scroll bar styles
   - maybe look like this: https://essentialsdocs.fandom.com/wiki/Pok%C3%A9dex?file=PokedexList.png
 - [ ] info page
-  - add router and click on pokemon name or add link below sprite
+
 - [ ] evolution chain to details page
 - [ ] species varieties to details page
 - [ ] cleanup boilerplate code
