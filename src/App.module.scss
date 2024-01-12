@@ -7,6 +7,11 @@ $red: #e83030;
 $lightRed: #f898a0;
 $darkRed: #c02028;
 $darkestRed: #901020;
+.body,
+.header {
+  border: 0.25rem solid $black;
+  box-sizing: border-box;
+}
 
 .header {
   background: $red;
@@ -25,7 +30,6 @@ $darkestRed: #901020;
   margin: auto;
   margin-top: 1rem;
   border-radius: 1rem 1rem 0 0;
-  border-bottom: 0.25rem solid $black;
 
   h1 {
     font-weight: normal;
@@ -39,17 +43,21 @@ $darkestRed: #901020;
   margin: auto;
   padding: 0.25rem;
   background-color: $white;
+  background-size: 30px 30px;
+  background-position: 15px 20px;
+  background-image: linear-gradient(to right, $gray 2px, transparent 2px),
+    linear-gradient(to bottom, $gray 2px, transparent 2px);
   width: 500px;
-  height: 400px;
+  height: 350px;
   overflow: hidden;
   display: grid;
-  box-sizing: border-box;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr 8fr 2fr;
   grid-column-gap: 0.25rem;
   grid-row-gap: 0.25rem;
   border-radius: 0 0 1rem 1rem;
-  color: $darkGray;
+  color: $black;
+  border-top: none;
 }
 
 // .div1 { grid-area: 1 / 2 / 4 / 3; } pokemon list

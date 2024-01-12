@@ -3,11 +3,12 @@
 - [x] setup application and repo
 - [x] basic search form
   - filter list of pokemon
-- [ ] pokemon details page
-  - add router?
+- [ ] pokemon details pane
   - display pokemon sprite, name, pokedex number
     - need to figure out how to handle for species with multiple varieties?
-    - use dream_world.front_default sprite
+    - use front_default sprite
+  - Highlight pokemon in list
+    - pokeball marker or border?
 
 # Alpha
 
@@ -28,6 +29,8 @@
   - cleanup search box styles
   - scroll bar styles
   - maybe look like this: https://essentialsdocs.fandom.com/wiki/Pok%C3%A9dex?file=PokedexList.png
+- [ ] info page
+  - add router and click on pokemon name or add link below sprite
 - [ ] evolution chain to details page
 - [ ] species varieties to details page
 - [ ] cleanup boilerplate code
@@ -35,5 +38,7 @@
 - [ ] global sass variables
 - [ ] seen/owned counter?
   - blur names until viewed? then count as seen?
+  - excuse to use redux?
+- [ ] mobile friendly
 
 # Won't do
