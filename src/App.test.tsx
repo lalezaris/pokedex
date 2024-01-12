@@ -1,14 +1,9 @@
-import { render } from "@testing-library/react"
-import { Provider } from "react-redux"
-import { store } from "./app/store"
+import React from "react"
 import App from "./App"
+import { renderWithProviders } from "./utils/testUtils"
 
 test("renders header", () => {
-  const { getByText } = render(
-    <Provider store={store}>
-      <App />
-    </Provider>,
-  )
+  const { getByText } = renderWithProviders(<App />)
 
   expect(getByText(/Pokedex/i)).toBeInTheDocument()
 })

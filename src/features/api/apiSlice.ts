@@ -12,3 +12,4 @@ export const apiSlice = createApi({
 })
 
 export const { useGetSpeciesQuery } = apiSlice
+export default apiSlice.reducer

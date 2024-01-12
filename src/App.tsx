@@ -1,7 +1,6 @@
-import logo from "./logo.svg"
-import { Counter } from "./features/counter/Counter"
+import React from "react"
 import "./App.css"
-import { Search } from "./features/search/Search"
+import Search from "./features/search/Search"
 
 function App() {
   return (
