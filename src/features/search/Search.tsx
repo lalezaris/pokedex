@@ -2,6 +2,8 @@ import React from "react"
 import { useState } from "react"
 import { useGetSpeciesQuery } from "../api/apiSlice"
 import styles from "./Search.module.scss"
+import { useAppDispatch, useAppSelector } from "../../app/hooks"
+import { selectId, setId } from "./searchSlice"
 
 const Loading = () => <div>loading</div>
 const Error = () => <div>an error occurred</div>
@@ -12,6 +14,8 @@ const paddedPokedexNumber = (number: number): string => {
 
 export default function Search() {
   const { data, isLoading, error } = useGetSpeciesQuery()
+  const dispatch = useAppDispatch()
+  const selectedId = useAppSelector(selectId)
 
   const [searchValue, setSearchValue] = useState<string>("")
 
@@ -37,8 +41,15 @@ export default function Search() {
                 paddedPokedexNumber(species.number).includes(searchValue),
             )
             .map((species) => (
-              <li key={species.number}>
-                {paddedPokedexNumber(species.number)} {species.name}
+              <li
+                key={species.number}
+                className={
+                  species.number === selectedId ? styles.active : undefined
+                }
+              >
+                <button onClick={() => dispatch(setId(species.number))}>
+                  {paddedPokedexNumber(species.number)} {species.name}
+                </button>
               </li>
             ))}
         </ul>

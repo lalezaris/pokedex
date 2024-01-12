@@ -40,13 +40,40 @@ $darkestRed: #901020;
 
   ul {
     border-left: 0.25rem solid $lightRed;
-    padding-left: 0.5rem;
     height: calc(100% - 1.75rem); // 100% - input height
 
     list-style-type: none;
+    padding: 0;
     margin-top: 0;
     li {
       margin-top: 0.25rem;
+
+      border: 0.25rem solid transparent;
+      border-radius: 0.5rem;
+
+      &.active {
+        border-color: $red !important;
+      }
+
+      &:hover {
+        cursor: pointer;
+        border-color: $gray;
+      }
+
+      button {
+        border: none;
+        background: none;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        color: inherit;
+        text-transform: inherit;
+        padding: 0;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
     }
     overflow-y: auto;
   }

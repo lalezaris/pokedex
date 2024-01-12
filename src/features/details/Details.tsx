@@ -1,20 +1,36 @@
 import React from "react"
-import { useState } from "react"
 import styles from "./Details.module.scss"
+import { useGetSpeciesDetailQuery } from "../api/apiSlice"
+import { useAppSelector } from "../../app/hooks"
+import { selectId } from "../search/searchSlice"
 
 export default function Details() {
+  const selectedId = useAppSelector(selectId)
+  const { data, isError, isLoading } = useGetSpeciesDetailQuery(selectedId)
+
   return (
-    <div className={styles.detailsBody}>
-      <div className={styles.namePlate}>
-        <h2>Charmander</h2>
-      </div>
-      <div className={styles.spriteContainer}>
-        <img
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
-          alt="A sprite of pokemon name"
-        />
-      </div>
-      <div className={styles.infoPane}></div>
-    </div>
+    <>
+      {!isLoading && (
+        <div className={styles.detailsBody}>
+          <div className={styles.namePlate}>
+            <h2>
+              {
+                data?.names.find((name) => {
+                  return name.language.name === "en"
+                })?.name
+              }
+            </h2>
+          </div>
+          <div className={styles.spriteContainer}>
+            {isError ? (
+              "An error occurred"
+            ) : (
+              <img src={data?.spriteUrl} alt={`A sprite of ${data?.name}`} />
+            )}
+          </div>
+          <div className={styles.infoPane}></div>
+        </div>
+      )}
+    </>
   )
 }
