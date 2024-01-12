@@ -6,7 +6,8 @@ import { selectId } from "../search/searchSlice"
 
 export default function Details() {
   const selectedId = useAppSelector(selectId)
-  const { data, isError, isLoading } = useGetSpeciesDetailQuery(selectedId)
+  const { data, isError, isLoading, isFetching } =
+    useGetSpeciesDetailQuery(selectedId)
 
   return (
     <>
@@ -21,10 +22,13 @@ export default function Details() {
               }
             </h2>
           </div>
-          <div className={styles.spriteContainer}>
-            {isError ? (
-              "An error occurred"
-            ) : (
+          <div
+            className={`${styles.spriteContainer} ${
+              isFetching ? styles.fetching : ""
+            }`}
+          >
+            {isError && "An error occurred"}
+            {data && !isFetching && (
               <img src={data?.spriteUrl} alt={`A sprite of ${data?.name}`} />
             )}
           </div>

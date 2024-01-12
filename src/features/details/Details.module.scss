@@ -18,6 +18,7 @@ $darkestRed: #901020;
 // is Crabominable, which fits nicely in the name plate.
 .namePlate {
   grid-area: 1 / 1 / 2 / 2;
+  height: 1.75rem;
 
   h2 {
     margin: 0;
@@ -29,9 +30,17 @@ $darkestRed: #901020;
   background-image: url("../../resources/pokeball.svg");
   background-size: cover;
   background-position: center;
+  height: 15rem;
 
   img {
     width: 100%;
+  }
+
+  &.fetching {
+    animation-name: spin;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
   }
 }
 
@@ -58,4 +67,13 @@ $darkestRed: #901020;
     $red 100%
   );
   text-align: center;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
