@@ -1,9 +1,10 @@
-# [x] MVP
+# MVP
 
 - [x] setup application and repo
-- [ ] basic search form
+- [x] basic search form
   - filter list of pokemon
 - [ ] pokemon details page
+  - add router
   - display pokemon sprite, name, pokedex number
     - need to figure out how to handle for species with multiple varieties?
     - use dream_world.front_default sprite
@@ -27,5 +28,9 @@
 - [ ] evolution chain to details page
 - [ ] species varieties to details page
 - [ ] cleanup boilerplate code
+- [x] setup linter
 
 # Won't do
+
+- Display images of pokemon species on search page
+  - Pokemon is wild now and have different varieties, and I don't feel like solving the problem of picking the right sprite or displaying all the varieties.
