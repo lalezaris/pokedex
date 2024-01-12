@@ -22,6 +22,7 @@ export default function Search() {
       <input
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
+        placeholder="Filter Pokémon"
       />
       {data && (
         <ul className={styles.pokemonList}>
