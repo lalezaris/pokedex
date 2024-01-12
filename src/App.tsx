@@ -11,7 +11,7 @@ function App() {
       <body className={styles.body}>
         <Search />
       </body>
-      <footer>
+      <footer className={styles.footer}>
         <p>Designed by Sam Lalezari</p>
       </footer>
     </>

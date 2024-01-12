@@ -26,6 +26,7 @@
 - [ ] attack moves to details page
 - [ ] make it fancy
   - cleanup search box styles
+  - scroll bar styles
   - maybe look like this: https://essentialsdocs.fandom.com/wiki/Pok%C3%A9dex?file=PokedexList.png
 - [ ] evolution chain to details page
 - [ ] species varieties to details page
