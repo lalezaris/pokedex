@@ -24,7 +24,7 @@
 
 # Backlog
 
-- [ ] cleanup boilerplate code
+- [x] cleanup boilerplate code
 - [ ] expand documentation (readme)
 - [ ] persist history across sessions
 - [ ] basic pokemon information page
@@ -45,7 +45,7 @@
 - [ ] Update pokedex list marker to be pokeballs
   - seems cooler?
 - [ ] create sass variables for border-widths and things like that
-- [ ] turn list into it's own component
+- [x] turn list into it's own component
 - [x] global sass variables
 - [x] error state bug when there is an error selecting pokemon for details pane
   - The old sprite and name still appear, along with 'an error occurred'
