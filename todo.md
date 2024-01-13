@@ -41,10 +41,11 @@
   - maybe look like this: https://essentialsdocs.fandom.com/wiki/Pok%C3%A9dex?file=PokedexList.png
 - [ ] mobile friendly using css grid
   - as good a time as any to learn
-- [ ] global sass variables
 - [ ] Move error and loading components to common (from Search)
 - [ ] Update pokedex list marker to be pokeballs
   - seems cooler?
+- [ ] create sass variables for border-widths and things like that
+- [x] global sass variables
 - [x] error state bug when there is an error selecting pokemon for details pane
   - The old sprite and name still appear, along with 'an error occurred'
 - [x] setup linter

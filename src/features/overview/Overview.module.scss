@@ -1,0 +1,32 @@
+.tabs {
+  overflow: hidden;
+}
+
+.tablink {
+  border: 0.25rem solid $black;
+  border-bottom: none;
+  border-radius: 0.5rem 0.5rem 0 0;
+  font: inherit;
+  color: inherit;
+  height: 100%;
+  margin-left: 0.5rem;
+
+  &:hover:enabled {
+    cursor: pointer;
+  }
+}
+
+.active {
+  background: $red;
+  background: linear-gradient(
+    180deg,
+    $red 0%,
+    $red 60%,
+    $darkRed 60%,
+    $darkRed 70%,
+    $darkestRed 70%,
+    $darkestRed 100%
+  );
+  color: $white;
+  text-shadow: 0 2px 2px $black;
+}
