@@ -1,19 +1,9 @@
-$white: #f8f8f8;
-$black: #111111;
-$lightGray: #e0e0e0;
-$gray: #a8a8a8;
-$darkGray: #585850;
-$red: #e83030;
-$lightRed: #f898a0;
-$darkRed: #c02028;
-$darkestRed: #901020;
-
 .pokemonList {
   text-transform: capitalize;
 }
 
 .searchBody {
-  grid-area: 1 / 2 / 4 / 3;
+  grid-area: 2 / 2 / 4 / 3;
 
   margin: 0.25rem;
   outline: 0.25rem solid $black;

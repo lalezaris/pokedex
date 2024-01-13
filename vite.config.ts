@@ -17,4 +17,11 @@ export default defineConfig({
     setupFiles: "src/setupTests",
     mockReset: true,
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "/src/common/global.scss";`,
+      },
+    },
+  },
 })
