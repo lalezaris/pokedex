@@ -9,7 +9,7 @@ import Loading from "../../common/components/Loading"
 import Error from "../../common/components/Error"
 
 export default function Search() {
-  const { data, isLoading, error } = useGetSpeciesQuery()
+  const { data, isLoading, isError } = useGetSpeciesQuery()
   const dispatch = useAppDispatch()
   const selectedId = useAppSelector(selectId)
 
@@ -20,49 +20,61 @@ export default function Search() {
     dispatch(pushToHistory(species))
   }
 
-  if (isLoading) {
-    return <Loading />
-  } else if (error) {
-    return <Error />
-  }
+  // if (isLoading) {
+  //   return <Loading />
+  // } else if (error) {
+  //   return <Error />
+  // }
 
   return (
     <div
       role="tabpanel"
-      aria-labelledby={`tab-${TabName.history}`}
+      aria-labelledby={`tab-${TabName.search}`}
       className={styles.paneBody}
       id={`tabcontent-${TabName.search}`}
     >
-      <input
-        value={searchValue}
-        onChange={(e) => setSearchValue(e.target.value.toLowerCase())}
-        placeholder="Filter Pokémon"
-      />
-
-      {data && (
-        <ul className={styles.searchList}>
-          {data
-            ?.filter(
-              (species) =>
-                species.name.includes(searchValue) ||
-                paddedPokedexNumber(species.number).includes(searchValue),
-            )
-            .map((species) => (
-              <li
-                key={species.number}
-                className={
-                  species.number === selectedId ? styles.active : undefined
-                }
-              >
-                <button
-                  disabled={species.number === selectedId}
-                  onClick={() => handleOnClick(species)}
-                >
-                  {paddedPokedexNumber(species.number)} {species.name}
-                </button>
-              </li>
-            ))}
-        </ul>
+      {isLoading ? (
+        <div className={styles.statusText}>
+          <Loading />
+        </div>
+      ) : isError ? (
+        <div className={styles.statusText}>
+          <Error />
+        </div>
+      ) : (
+        <>
+          {" "}
+          <input
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value.toLowerCase())}
+            placeholder="Filter Pokémon"
+          />
+          {data && (
+            <ul className={styles.searchList}>
+              {data
+                ?.filter(
+                  (species) =>
+                    species.name.includes(searchValue) ||
+                    paddedPokedexNumber(species.number).includes(searchValue),
+                )
+                .map((species) => (
+                  <li
+                    key={species.number}
+                    className={
+                      species.number === selectedId ? styles.active : undefined
+                    }
+                  >
+                    <button
+                      disabled={species.number === selectedId}
+                      onClick={() => handleOnClick(species)}
+                    >
+                      {paddedPokedexNumber(species.number)} {species.name}
+                    </button>
+                  </li>
+                ))}
+            </ul>
+          )}
+        </>
       )}
     </div>
   )

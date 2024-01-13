@@ -7,8 +7,7 @@ import Error from "../../common/components/Error"
 
 export default function Details() {
   const selectedId = useAppSelector(selectId)
-  const { data, isError, isLoading, isFetching } =
-    useGetSpeciesDetailQuery(selectedId)
+  const { data, isError, isFetching } = useGetSpeciesDetailQuery(selectedId)
 
   const name = data?.names.find((name) => {
     return name.language.name === "en"
@@ -16,29 +15,27 @@ export default function Details() {
 
   return (
     <>
-      {!isLoading && (
-        <div className={styles.detailsBody}>
-          <div className={styles.namePlate}>
-            <h2>{!isError && name}</h2>
-          </div>
-          <div
-            className={`${styles.spriteContainer} ${
-              isFetching ? styles.fetching : ""
-            }`}
-          >
-            {isError && <Error />}
-            {data &&
-              !isFetching &&
-              !isError &&
-              (data.spriteUrl ? (
-                <img src={data?.spriteUrl} alt={`A sprite of ${name}`} />
-              ) : (
-                "No sprite found."
-              ))}
-          </div>
-          <div className={styles.infoPane}></div>
+      <div className={styles.detailsBody}>
+        <div className={styles.namePlate}>
+          <h2>{!isError && name}</h2>
         </div>
-      )}
+        <div
+          className={`${styles.spriteContainer} ${
+            isFetching ? styles.fetching : ""
+          }`}
+        >
+          {isError && <Error />}
+          {data &&
+            !isFetching &&
+            !isError &&
+            (data.spriteUrl ? (
+              <img src={data?.spriteUrl} alt={`A sprite of ${name}`} />
+            ) : (
+              "No sprite found."
+            ))}
+        </div>
+        <div className={styles.infoPane}></div>
+      </div>
     </>
   )
 }

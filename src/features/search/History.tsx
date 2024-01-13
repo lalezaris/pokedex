@@ -21,23 +21,27 @@ export default function History() {
       className={styles.paneBody}
       id={`tabcontent-${TabName.history}`}
     >
-      <ul className={styles.historyList}>
-        {history.map((species) => (
-          <li
-            key={species.number}
-            className={
-              species.number === selectedId ? styles.active : undefined
-            }
-          >
-            <button
-              disabled={species.number === selectedId}
-              onClick={() => handleOnClick(species)}
+      {history.length > 0 ? (
+        <ul className={styles.historyList}>
+          {history.map((species) => (
+            <li
+              key={species.number}
+              className={
+                species.number === selectedId ? styles.active : undefined
+              }
             >
-              {paddedPokedexNumber(species.number)} {species.name}
-            </button>
-          </li>
-        ))}
-      </ul>
+              <button
+                disabled={species.number === selectedId}
+                onClick={() => handleOnClick(species)}
+              >
+                {paddedPokedexNumber(species.number)} {species.name}
+              </button>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className={styles.statusText}>no history</p>
+      )}
     </div>
   )
 }
