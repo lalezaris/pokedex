@@ -26,9 +26,14 @@ export default function Details() {
             }`}
           >
             {isError && "An error occurred"}
-            {data && !isFetching && !isError && (
-              <img src={data?.spriteUrl} alt={`A sprite of ${name}`} />
-            )}
+            {data &&
+              !isFetching &&
+              !isError &&
+              (data.spriteUrl ? (
+                <img src={data?.spriteUrl} alt={`A sprite of ${name}`} />
+              ) : (
+                "No sprite found."
+              ))}
           </div>
           <div className={styles.infoPane}></div>
         </div>

@@ -3,7 +3,7 @@
 - [x] setup application and repo
 - [x] basic search form
   - filter list of pokemon
-- [ ] pokemon details pane
+- [x] pokemon details pane
   - display pokemon sprite, name, pokedex number
     - need to figure out how to handle for species with multiple varieties? (is_default flag?)
     - use front_default sprite
