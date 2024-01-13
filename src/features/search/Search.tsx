@@ -4,7 +4,7 @@ import { SpeciesResponse, useGetSpeciesQuery } from "../api/apiSlice"
 import styles from "./Search.module.scss"
 import { useAppDispatch, useAppSelector } from "../../app/hooks"
 import { pushToHistory, selectId, setId } from "./searchSlice"
-import { paddedPokedexNumber } from "../../common/utils"
+import { TabName, paddedPokedexNumber } from "../../common/utils"
 import Loading from "../../common/components/Loading"
 import Error from "../../common/components/Error"
 
@@ -27,7 +27,12 @@ export default function Search() {
   }
 
   return (
-    <div className={styles.searchBody}>
+    <div
+      role="tabpanel"
+      aria-labelledby={`tab-${TabName.history}`}
+      className={styles.paneBody}
+      id={`tabcontent-${TabName.search}`}
+    >
       <input
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value.toLowerCase())}

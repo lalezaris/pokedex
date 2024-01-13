@@ -3,10 +3,30 @@ import styles from "./Overview.module.scss"
 import Details from "../details/Details"
 import Search from "../search/Search"
 import History from "../search/History"
+import { TabName } from "../../common/utils"
 
-enum TabName {
-  search,
-  history,
+type TabButtonProps = {
+  name: TabName
+  activeTab: TabName
+  onClick: (tab: TabName) => void
+  children: React.ReactNode
+}
+const TabButton = ({ name, activeTab, onClick, children }: TabButtonProps) => {
+  const tabClasses = (tab: TabName) =>
+    `${styles.tablink} ${activeTab === tab ? styles.active : ""}`
+
+  return (
+    <button
+      role="tab"
+      onClick={() => onClick(name)}
+      className={tabClasses(name)}
+      aria-selected={activeTab === name}
+      aria-controls={`tabcontent-${name}`}
+      id={`tab-${name}`}
+    >
+      {children}
+    </button>
+  )
 }
 
 const Overview = () => {
@@ -16,25 +36,24 @@ const Overview = () => {
     setActiveTab(tab)
   }
 
-  const tabClasses = (tab) =>
-    `${styles.tablink} ${activeTab === tab ? styles.active : ""}`
-
   return (
     <>
       <Details />
-      <div className={styles.tabs}>
-        <button
-          onClick={() => handleOnClick(TabName.search)}
-          className={tabClasses(TabName.search)}
+      <div role="tablist" className={styles.tabs}>
+        <TabButton
+          name={TabName.search}
+          activeTab={activeTab}
+          onClick={handleOnClick}
         >
           Search
-        </button>
-        <button
-          onClick={() => handleOnClick(TabName.history)}
-          className={tabClasses(TabName.history)}
+        </TabButton>
+        <TabButton
+          name={TabName.history}
+          activeTab={activeTab}
+          onClick={handleOnClick}
         >
           History
-        </button>
+        </TabButton>
       </div>
       {activeTab === TabName.search && <Search />}
       {activeTab === TabName.history && <History />}

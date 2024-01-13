@@ -3,7 +3,7 @@ import { SpeciesResponse } from "../api/apiSlice"
 import styles from "./Search.module.scss"
 import { useAppDispatch, useAppSelector } from "../../app/hooks"
 import { selectHistory, selectId, setId } from "./searchSlice"
-import { paddedPokedexNumber } from "../../common/utils"
+import { TabName, paddedPokedexNumber } from "../../common/utils"
 
 export default function History() {
   const dispatch = useAppDispatch()
@@ -15,7 +15,12 @@ export default function History() {
   }
 
   return (
-    <div className={styles.searchBody}>
+    <div
+      role="tabpanel"
+      aria-labelledby={`tab-${TabName.history}`}
+      className={styles.paneBody}
+      id={`tabcontent-${TabName.history}`}
+    >
       <ul className={styles.historyList}>
         {history.map((species) => (
           <li

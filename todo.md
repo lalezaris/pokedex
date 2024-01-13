@@ -14,13 +14,13 @@
 
 # Alpha
 
-- [ ] track pokemon queries made in current session
+- [x] track pokemon queries made in current session
   - update redux store to handle history
 - [ ] add history view
   - Pokedex screen with list of previously viewed pokemon
   - Replace the search pane? Add tabs?
-- [ ] re-visit old searches
-  - interacting with history pane behaves simliar to search pane
+  - re-visit old searches
+  - interacting with history pane behaves similar to search pane
 
 # Backlog
 
@@ -59,3 +59,6 @@
   - To prevent the hyphens, but will make 1025 calls to get the non-hyphened names
   - API limitation, maybe switching to graphql beta endpoint helps?
   - e.g. Type-Null, Iron Treads
+- [ ] Full aria accessibility for tabs
+  - Specifications define how keyboard inputs should control tab groups, but I don't have time to implement that
+  - docs: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
