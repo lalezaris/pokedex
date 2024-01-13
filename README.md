@@ -39,4 +39,5 @@ npx degit reduxjs/redux-templates/packages/vite-template-redux my-app
 - Redux & Redux Toolkit
   - Immer is cool
   - https://www.youtube.com/watch?v=9zySeP5vH9c
+  - Should not store sets (or anything non-serializable) in redux (https://stackoverflow.com/a/65581029)
 - RTK Query

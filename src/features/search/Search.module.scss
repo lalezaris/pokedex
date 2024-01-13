@@ -70,7 +70,7 @@ $darkestRed: #901020;
         text-transform: inherit;
         padding: 0;
 
-        &:hover {
+        &:hover:enabled {
           cursor: pointer;
         }
       }

@@ -1,9 +1,9 @@
 import React from "react"
 import { useState } from "react"
-import { useGetSpeciesQuery } from "../api/apiSlice"
+import { SpeciesResponse, useGetSpeciesQuery } from "../api/apiSlice"
 import styles from "./Search.module.scss"
 import { useAppDispatch, useAppSelector } from "../../app/hooks"
-import { selectId, setId } from "./searchSlice"
+import { pushToHistory, selectId, setId } from "./searchSlice"
 
 const Loading = () => <div>loading</div>
 const Error = () => <div>an error occurred</div>
@@ -19,6 +19,11 @@ export default function Search() {
 
   const [searchValue, setSearchValue] = useState<string>("")
 
+  const handleOnClick = (species: SpeciesResponse): void => {
+    dispatch(setId(species.number))
+    dispatch(pushToHistory(species.number))
+  }
+
   if (isLoading) {
     return <Loading />
   } else if (error) {
@@ -32,6 +37,7 @@ export default function Search() {
         onChange={(e) => setSearchValue(e.target.value.toLowerCase())}
         placeholder="Filter Pokémon"
       />
+
       {data && (
         <ul className={styles.pokemonList}>
           {data
@@ -47,7 +53,10 @@ export default function Search() {
                   species.number === selectedId ? styles.active : undefined
                 }
               >
-                <button onClick={() => dispatch(setId(species.number))}>
+                <button
+                  disabled={species.number === selectedId}
+                  onClick={() => handleOnClick(species)}
+                >
                   {paddedPokedexNumber(species.number)} {species.name}
                 </button>
               </li>

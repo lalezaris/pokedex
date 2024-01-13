@@ -51,5 +51,9 @@
   - seems cooler?
 - [x] error state bug when there is an error selecting pokemon for details pane
   - The old sprite and name still appear, along with 'an error occurred'
+- [ ] Update names in pokedex list to use pokemon-details?
+  - To prevent the hyphens, but will make 1025 calls to get the non-hyphened names
+  - API limitation, maybe switching to graphql beta endpoint helps?
+  - e.g. Type-Null, Iron Treads
 
 # Won't do
