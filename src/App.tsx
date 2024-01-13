@@ -9,10 +9,10 @@ function App() {
       <header className={styles.header}>
         <h1>Pokédex</h1>
       </header>
-      <body className={styles.body}>
+      <main className={styles.body}>
         <Details />
         <Search />
-      </body>
+      </main>
       <footer className={styles.footer}>
         <p>Designed by Sam Lalezari</p>
       </footer>
