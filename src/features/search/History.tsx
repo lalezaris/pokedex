@@ -2,7 +2,7 @@ import React from "react"
 import { SpeciesResponse } from "../api/apiSlice"
 import styles from "./Search.module.scss"
 import { useAppDispatch, useAppSelector } from "../../app/hooks"
-import { selectHistory, selectId, setId } from "./searchSlice"
+import { selectHistory, setId } from "./searchSlice"
 import { TabName } from "../../common/utils"
 import PokeList from "./PokeList"
 
