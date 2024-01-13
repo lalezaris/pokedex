@@ -35,7 +35,7 @@ export default function Search() {
       />
 
       {data && (
-        <ul className={styles.pokemonList}>
+        <ul className={styles.searchList}>
           {data
             ?.filter(
               (species) =>

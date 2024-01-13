@@ -16,7 +16,7 @@ export default function History() {
 
   return (
     <div className={styles.searchBody}>
-      <ul className={styles.pokemonList}>
+      <ul className={styles.historyList}>
         {history.map((species) => (
           <li
             key={species.number}
