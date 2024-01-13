@@ -3,6 +3,7 @@ import styles from "./Details.module.scss"
 import { useGetSpeciesDetailQuery } from "../api/apiSlice"
 import { useAppSelector } from "../../app/hooks"
 import { selectId } from "../search/searchSlice"
+import Error from "../../common/components/Error"
 
 export default function Details() {
   const selectedId = useAppSelector(selectId)
@@ -25,7 +26,7 @@ export default function Details() {
               isFetching ? styles.fetching : ""
             }`}
           >
-            {isError && "An error occurred"}
+            {isError && <Error />}
             {data &&
               !isFetching &&
               !isError &&

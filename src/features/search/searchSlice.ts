@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { RootState } from "../../app/store"
+import { SpeciesResponse } from "../api/apiSlice"
 
 export interface SearchState {
   id: number
-  history: number[]
+  history: SpeciesResponse[]
 }
 
 const initialState: SearchState = {
@@ -18,12 +19,14 @@ export const searchSlice = createSlice({
     setId: (state, action: PayloadAction<number>) => {
       state.id = action.payload
     },
-    pushToHistory: (state, action: PayloadAction<number>) => {
+    pushToHistory: (state, action: PayloadAction<SpeciesResponse>) => {
       // Since the maximum size of the history array is 1025, skip checking
       // if the id already exists and just run filter every time
       state.history = state.history
-        .filter((id) => id !== action.payload)
+        .reverse()
+        .filter((species) => species.number !== action.payload.number)
         .concat(action.payload)
+        .reverse()
     },
   },
 })

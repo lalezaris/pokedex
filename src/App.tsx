@@ -12,7 +12,7 @@ function App() {
         <Overview />
       </main>
       <footer className={styles.footer}>
-        <p>Designed by Sam Lalezari</p>
+        <p>Built by Sam Lalezari</p>
       </footer>
     </>
   )

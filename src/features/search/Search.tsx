@@ -4,13 +4,9 @@ import { SpeciesResponse, useGetSpeciesQuery } from "../api/apiSlice"
 import styles from "./Search.module.scss"
 import { useAppDispatch, useAppSelector } from "../../app/hooks"
 import { pushToHistory, selectId, setId } from "./searchSlice"
-
-const Loading = () => <div>loading</div>
-const Error = () => <div>an error occurred</div>
-
-const paddedPokedexNumber = (number: number): string => {
-  return String(number).padStart(4, "0")
-}
+import { paddedPokedexNumber } from "../../common/utils"
+import Loading from "../../common/components/Loading"
+import Error from "../../common/components/Error"
 
 export default function Search() {
   const { data, isLoading, error } = useGetSpeciesQuery()
@@ -21,7 +17,7 @@ export default function Search() {
 
   const handleOnClick = (species: SpeciesResponse): void => {
     dispatch(setId(species.number))
-    dispatch(pushToHistory(species.number))
+    dispatch(pushToHistory(species))
   }
 
   if (isLoading) {
