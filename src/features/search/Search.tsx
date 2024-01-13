@@ -22,7 +22,10 @@ export default function Search() {
   }
 
   return (
-    <TabPanel name={TabName.search} className={styles.paneBody}>
+    <TabPanel
+      name={TabName.search}
+      className={`${styles.paneBody} ${styles.searchList}`}
+    >
       {isLoading ? (
         <div className={styles.statusText}>
           <Loading />

@@ -20,7 +20,7 @@ const PokeList = ({ pokemon, filterValue = "", onClick }: PokeListProps) => {
   }
 
   return (
-    <ul className={styles.searchList}>
+    <ul>
       {pokemon
         ?.filter(
           (species) =>

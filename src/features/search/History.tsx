@@ -16,7 +16,10 @@ export default function History() {
   }
 
   return (
-    <TabPanel name={TabName.history} className={styles.paneBody}>
+    <TabPanel
+      name={TabName.history}
+      className={`${styles.paneBody} ${styles.historyList}`}
+    >
       {history.length > 0 ? (
         <PokeList pokemon={history} onClick={handleOnClick} />
       ) : (

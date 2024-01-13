@@ -25,20 +25,24 @@
     }
   }
 
+  &.searchList {
+    ul {
+      height: calc(100% - 1.75rem); // 100% - input height
+    }
+  }
+
+  &.historyList {
+    ul {
+      height: 100%;
+    }
+  }
+
   ul {
     text-transform: capitalize;
     border-left: 0.25rem solid $lightRed;
     list-style-type: none;
     padding: 0;
     margin-top: 0;
-
-    &.searchList {
-      height: calc(100% - 1.75rem); // 100% - input height
-    }
-
-    &.historyList {
-      height: 100%;
-    }
 
     li {
       margin-top: 0.25rem;
