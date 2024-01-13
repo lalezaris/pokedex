@@ -1,7 +1,6 @@
 import React from "react"
 import styles from "./App.module.scss"
-import Search from "./features/search/Search"
-import Details from "./features/details/Details"
+import Overview from "./features/overview/Overview"
 
 function App() {
   return (
@@ -10,8 +9,7 @@ function App() {
         <h1>Pokédex</h1>
       </header>
       <main className={styles.body}>
-        <Details />
-        <Search />
+        <Overview />
       </main>
       <footer className={styles.footer}>
         <p>Designed by Sam Lalezari</p>

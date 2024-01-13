@@ -1,5 +1,5 @@
 import React from "react"
-import { fireEvent, screen } from "@testing-library/react"
+import { screen } from "@testing-library/react"
 import Details from "./Details"
 import { renderWithProviders } from "../../utils/testUtils"
 import { server } from "../../mocks/node"
@@ -49,9 +49,6 @@ describe("Details", () => {
     expect(screen.queryByText(errorMsg)).not.toBeInTheDocument()
     expect(await screen.findByText(errorMsg)).toBeInTheDocument()
   })
-  // This should be more of an integration test
-  // Search & details should live in an "overview" component
-  it.todo("update if selected pokemon is updated")
   it("Shows no image found if no sprite url", async () => {
     renderWithProviders(<Details />)
 
