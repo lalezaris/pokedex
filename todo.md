@@ -16,7 +16,7 @@
 
 - [x] track pokemon queries made in current session
   - update redux store to handle history
-- [ ] add history view
+- [x] add history view
   - Pokedex screen with list of previously viewed pokemon
   - Replace the search pane? Add tabs?
   - re-visit old searches
@@ -45,6 +45,7 @@
 - [ ] Update pokedex list marker to be pokeballs
   - seems cooler?
 - [ ] create sass variables for border-widths and things like that
+- [ ] turn list into it's own component
 - [x] global sass variables
 - [x] error state bug when there is an error selecting pokemon for details pane
   - The old sprite and name still appear, along with 'an error occurred'
