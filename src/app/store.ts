@@ -4,12 +4,10 @@ import {
   Action,
   combineReducers,
 } from "@reduxjs/toolkit"
-import counterReducer from "../features/counter/counterSlice"
 import { apiSlice } from "../features/api/apiSlice"
 import searchReducer from "../features/search/searchSlice"
 
 const rootReducer = combineReducers({
-  counter: counterReducer,
   search: searchReducer,
   [apiSlice.reducerPath]: apiSlice.reducer,
 })

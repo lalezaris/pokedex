@@ -2,16 +2,16 @@ import React from "react"
 import { useState } from "react"
 import { SpeciesResponse, useGetSpeciesQuery } from "../api/apiSlice"
 import styles from "./Search.module.scss"
-import { useAppDispatch, useAppSelector } from "../../app/hooks"
-import { pushToHistory, selectId, setId } from "./searchSlice"
-import { TabName, paddedPokedexNumber } from "../../common/utils"
+import { useAppDispatch } from "../../app/hooks"
+import { pushToHistory, setId } from "./searchSlice"
+import { TabName } from "../../common/utils"
 import Loading from "../../common/components/Loading"
 import Error from "../../common/components/Error"
+import PokeList from "./PokeList"
 
 export default function Search() {
   const { data, isLoading, isError } = useGetSpeciesQuery()
   const dispatch = useAppDispatch()
-  const selectedId = useAppSelector(selectId)
 
   const [searchValue, setSearchValue] = useState<string>("")
 
@@ -42,31 +42,15 @@ export default function Search() {
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value.toLowerCase())}
             placeholder="Filter Pokémon"
+            name="Filter Pokemon"
+            id="filter-input"
           />
           {data && (
-            <ul className={styles.searchList}>
-              {data
-                ?.filter(
-                  (species) =>
-                    species.name.includes(searchValue) ||
-                    paddedPokedexNumber(species.number).includes(searchValue),
-                )
-                .map((species) => (
-                  <li
-                    key={species.number}
-                    className={
-                      species.number === selectedId ? styles.active : undefined
-                    }
-                  >
-                    <button
-                      disabled={species.number === selectedId}
-                      onClick={() => handleOnClick(species)}
-                    >
-                      {paddedPokedexNumber(species.number)} {species.name}
-                    </button>
-                  </li>
-                ))}
-            </ul>
+            <PokeList
+              pokemon={data}
+              filterValue={searchValue}
+              onClick={handleOnClick}
+            />
           )}
         </>
       )}
