@@ -30,7 +30,7 @@ describe("Details", () => {
       }),
     )
 
-    const errorMsg = "An error occurred"
+    const errorMsg = "an error occurred"
     expect(screen.queryByText(errorMsg)).not.toBeInTheDocument()
     expect(await screen.findByText(errorMsg)).toBeInTheDocument()
   })
@@ -45,7 +45,7 @@ describe("Details", () => {
       }),
     )
 
-    const errorMsg = "An error occurred"
+    const errorMsg = "an error occurred"
     expect(screen.queryByText(errorMsg)).not.toBeInTheDocument()
     expect(await screen.findByText(errorMsg)).toBeInTheDocument()
   })
