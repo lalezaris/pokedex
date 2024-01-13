@@ -8,6 +8,7 @@ import { TabName } from "../../common/utils"
 import Loading from "../../common/components/Loading"
 import Error from "../../common/components/Error"
 import PokeList from "./PokeList"
+import TabPanel from "../../common/components/TabPanel"
 
 export default function Search() {
   const { data, isLoading, isError } = useGetSpeciesQuery()
@@ -21,12 +22,7 @@ export default function Search() {
   }
 
   return (
-    <div
-      role="tabpanel"
-      aria-labelledby={`tab-${TabName.search}`}
-      className={styles.paneBody}
-      id={`tabcontent-${TabName.search}`}
-    >
+    <TabPanel name={TabName.search} className={styles.paneBody}>
       {isLoading ? (
         <div className={styles.statusText}>
           <Loading />
@@ -37,7 +33,6 @@ export default function Search() {
         </div>
       ) : (
         <>
-          {" "}
           <input
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value.toLowerCase())}
@@ -54,6 +49,6 @@ export default function Search() {
           )}
         </>
       )}
-    </div>
+    </TabPanel>
   )
 }

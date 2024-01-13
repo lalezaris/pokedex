@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks"
 import { selectHistory, setId } from "./searchSlice"
 import { TabName } from "../../common/utils"
 import PokeList from "./PokeList"
+import TabPanel from "../../common/components/TabPanel"
 
 export default function History() {
   const dispatch = useAppDispatch()
@@ -15,17 +16,12 @@ export default function History() {
   }
 
   return (
-    <div
-      role="tabpanel"
-      aria-labelledby={`tab-${TabName.history}`}
-      className={styles.paneBody}
-      id={`tabcontent-${TabName.history}`}
-    >
+    <TabPanel name={TabName.history} className={styles.paneBody}>
       {history.length > 0 ? (
         <PokeList pokemon={history} onClick={handleOnClick} />
       ) : (
         <p className={styles.statusText}>no history</p>
       )}
-    </div>
+    </TabPanel>
   )
 }
