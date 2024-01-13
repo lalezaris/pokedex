@@ -36,7 +36,10 @@ export const apiSlice = createApi({
   endpoints: (builder) => ({
     getSpecies: builder.query<SpeciesResponse[], void>(getSpeciesQuery),
     getSpeciesDetail: builder.query<PokemonSpeciesWithSprite, number>({
-      // Using queryFn so I can inject the sprite url from the default variety of a pokemon species
+      // Using queryFn so I can inject the sprite url from the default
+      // variety of a pokemon species.
+      // Also, not pulling out this into a defined constant because
+      // typescript gets mad.
       queryFn: async (id, _api, _extraOptions, baseQuery) => {
         // Attempt to query the pokemon species
         const speciesDetail = await baseQuery(`/pokemon-species/${id}`)
