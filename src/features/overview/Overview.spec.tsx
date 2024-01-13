@@ -1,6 +1,5 @@
 import React from "react"
-import { fireEvent, render, screen } from "@testing-library/react"
-import Details from "./Details"
+import { fireEvent, screen } from "@testing-library/react"
 import { renderWithProviders } from "../../utils/testUtils"
 import { server } from "../../mocks/node"
 import { HttpResponse, http } from "msw"

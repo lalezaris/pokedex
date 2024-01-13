@@ -20,12 +20,6 @@ export default function Search() {
     dispatch(pushToHistory(species))
   }
 
-  // if (isLoading) {
-  //   return <Loading />
-  // } else if (error) {
-  //   return <Error />
-  // }
-
   return (
     <div
       role="tabpanel"
