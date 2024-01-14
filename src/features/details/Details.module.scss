@@ -36,6 +36,20 @@
 
 .infoPane {
   grid-area: 3 / 1 / 4 / 2;
+  display: flex;
+  padding: 0.25rem 1.25rem;
+  align-items: center;
+  justify-content: space-between;
+
+  a {
+    color: $black;
+    text-decoration: none;
+    border: 2px solid $darkGray;
+    border-radius: 0.25rem;
+    padding: 0 0.5rem;
+    background-color: $lightGray;
+    box-shadow: 2px 2px 0px 0px $gray;
+  }
 }
 
 .namePlate,

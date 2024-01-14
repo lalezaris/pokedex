@@ -4,6 +4,7 @@ import { useGetSpeciesDetailQuery } from "../api/apiSlice"
 import { useAppSelector } from "../../app/hooks"
 import { selectId } from "../search/searchSlice"
 import Error from "../../common/components/Error"
+import { Link } from "react-router-dom"
 
 export default function Details() {
   const selectedId = useAppSelector(selectId)
@@ -34,7 +35,9 @@ export default function Details() {
               "No sprite found."
             ))}
         </div>
-        <div className={styles.infoPane}></div>
+        <div className={styles.infoPane}>
+          <Link to={`/${data?.id}/info`}>Info</Link>
+        </div>
       </div>
     </>
   )

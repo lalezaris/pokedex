@@ -24,7 +24,6 @@
 
 # Backlog
 
-- [x] cleanup boilerplate code
 - [ ] expand documentation (readme)
 - [ ] persist history across sessions
 - [ ] basic pokemon information page
@@ -41,15 +40,17 @@
   - maybe look like this: https://essentialsdocs.fandom.com/wiki/Pok%C3%A9dex?file=PokedexList.png
 - [ ] mobile friendly using css grid
   - as good a time as any to learn
-- [ ] Move error and loading components to common (from Search)
 - [ ] Update pokedex list marker to be pokeballs
   - seems cooler?
 - [ ] create sass variables for border-widths and things like that
+- [ ] add custom 404/error page
+- [x] Move error and loading components to common (from Search)
 - [x] turn list into it's own component
 - [x] global sass variables
 - [x] error state bug when there is an error selecting pokemon for details pane
   - The old sprite and name still appear, along with 'an error occurred'
 - [x] setup linter
+- [x] cleanup boilerplate code
 
 # Won't do
 
