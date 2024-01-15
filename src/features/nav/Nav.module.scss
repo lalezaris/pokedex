@@ -1,0 +1,40 @@
+.navBody {
+  height: 100%;
+}
+
+.navBar {
+  height: 2rem;
+  background: $red;
+  margin: -0.25rem;
+  padding: 0 1rem;
+
+  ul {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+
+    li:not(:first-child) {
+      margin-left: 1rem;
+    }
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    text-shadow: 0.125rem 0.125rem 0.125rem $black;
+    opacity: 0.75;
+
+    &:global.active {
+      opacity: 1;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

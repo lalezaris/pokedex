@@ -44,6 +44,7 @@
   - seems cooler?
 - [ ] create sass variables for border-widths and things like that
 - [ ] add custom 404/error page
+- [ ] add custom colors for each type
 - [x] Move error and loading components to common (from Search)
 - [x] turn list into it's own component
 - [x] global sass variables

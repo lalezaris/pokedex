@@ -44,11 +44,15 @@
   a {
     color: $black;
     text-decoration: none;
-    border: 2px solid $darkGray;
+    border: 0.125rem solid $darkGray;
     border-radius: 0.25rem;
     padding: 0 0.5rem;
     background-color: $lightGray;
-    box-shadow: 2px 2px 0px 0px $gray;
+    box-shadow: 0.125rem 0.125rem00 $gray;
+
+    &:hover {
+      background-color: $gray;
+    }
   }
 }
 

@@ -1,3 +1,13 @@
+.overviewBody {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 8fr 2fr;
+  grid-column-gap: 0.25rem;
+  grid-row-gap: 0.25rem;
+  height: 100%;
+  width: 100%;
+}
+
 .tabs {
   overflow: hidden;
 }
@@ -28,5 +38,5 @@
     $darkestRed 100%
   );
   color: $white;
-  text-shadow: 0 2px 2px $black;
+  text-shadow: 0 0.125rem 0.125rem $black;
 }

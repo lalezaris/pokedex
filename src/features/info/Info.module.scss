@@ -1,0 +1,140 @@
+.infoPane {
+  margin-top: 0.5rem;
+  height: calc(100% - 2rem);
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "sprite name"
+    "sprite type"
+    "sprite stats"
+    "bio bio";
+}
+
+.sprite {
+  grid-area: sprite;
+
+  img {
+    height: 100%;
+  }
+}
+
+.nameBox {
+  grid-area: name;
+  border: 0.1875rem solid $black;
+  border-radius: 0.5rem;
+  background: $white;
+
+  h2 {
+    height: 50%;
+    background-color: $red;
+    border-bottom: 0.25rem solid $lightRed;
+    color: white;
+    text-shadow: 0.125rem 0.125rem 0.125rem $black;
+  }
+
+  p {
+    height: 50%;
+    font-size: 1.25rem;
+    font-weight: normal;
+    text-shadow: 0.0625rem 0.0625rem 0.0625rem $darkGray;
+  }
+
+  h2,
+  p {
+    margin: 0;
+    padding-left: 1rem;
+  }
+}
+
+.typeBoxes {
+  grid-area: type;
+  padding: 0.25rem 0.25rem;
+
+  ul {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+  li {
+    font-size: 1.25rem;
+    color: white;
+    text-shadow: 0.0625rem 0.0625rem 0.0625rem $black;
+    border: 0.125rem solid $black;
+    display: inline;
+    border-radius: 0.25rem;
+    background-color: $gray;
+    box-shadow: 0 0 0.125rem 0.125rem #fff8 inset;
+    padding: 0 0.5rem;
+  }
+}
+
+.statsBox {
+  padding-left: 0.25rem;
+  grid-area: stats;
+  border: 0.1875rem solid $black;
+  border-radius: 0.5rem;
+  background: $white;
+  background: linear-gradient(
+    90deg,
+    $red 0%,
+    $red 2%,
+    $lightRed 2%,
+    $lightRed 3%,
+    $white 3%,
+    $white 100%
+  );
+  font-size: 1.25rem;
+  font-weight: normal;
+  text-shadow: 0.0625rem 0.0625rem 0.0625rem $darkGray;
+  table {
+    height: 100%;
+    width: 100%;
+
+    tr:first-child > td {
+      border-bottom: 0.1875rem dashed $gray;
+    }
+
+    td:first-child {
+      text-align: center;
+    }
+  }
+}
+
+.flavorText {
+  font-weight: normal;
+  text-shadow: 0.0625rem 0.0625rem 0.0625rem $darkGray;
+  grid-area: bio;
+  border: 0.25rem solid $black;
+  padding: 0 1rem;
+  border-radius: 0.5rem;
+  background: $white;
+  background: linear-gradient(
+    90deg,
+    $red 0%,
+    $red 2%,
+    $lightRed 2%,
+    $lightRed 3%,
+    $white 3%,
+    $white 97%,
+    $lightRed 97%,
+    $lightRed 98%,
+    $red 98%,
+    $red 100%
+  );
+
+  align-self: end;
+
+  p {
+    margin: 0;
+  }
+}
+
+.nameBox,
+.statsBox,
+.flavorText {
+  box-shadow: 0.125rem 0.125rem 0 0 #0005;
+}

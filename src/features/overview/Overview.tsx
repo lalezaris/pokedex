@@ -37,7 +37,7 @@ const Overview = () => {
   }
 
   return (
-    <>
+    <div className={styles.overviewBody}>
       <Details />
       <div role="tablist" className={styles.tabs}>
         <TabButton
@@ -57,7 +57,7 @@ const Overview = () => {
       </div>
       {activeTab === TabName.search && <Search />}
       {activeTab === TabName.history && <History />}
-    </>
+    </div>
   )
 }
 

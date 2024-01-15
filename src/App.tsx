@@ -1,7 +1,12 @@
 import React from "react"
 import styles from "./App.module.scss"
 import Overview from "./features/overview/Overview"
-import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom"
+import {
+  Link,
+  Outlet,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom"
 import Info from "./features/info/Info"
 import Nav from "./features/nav/Nav"
 
