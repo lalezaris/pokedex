@@ -5,14 +5,13 @@ import { useAppSelector } from "../../app/hooks"
 import { selectId } from "../search/searchSlice"
 import Error from "../../common/components/Error"
 import { Link } from "react-router-dom"
+import { findSpeciesName } from "../../common/utils"
 
 export default function Details() {
   const selectedId = useAppSelector(selectId)
   const { data, isError, isFetching } = useGetSpeciesDetailQuery(selectedId)
 
-  const name = data?.names.find((name) => {
-    return name.language.name === "en"
-  })?.name
+  const name = data ? findSpeciesName(data) : ""
 
   return (
     <>

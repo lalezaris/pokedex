@@ -45,6 +45,9 @@
 - [ ] create sass variables for border-widths and things like that
 - [ ] add custom 404/error page
 - [ ] add custom colors for each type
+- [ ] cleanup flavor text
+  - flavor text is scraped from rom builds, so contain weird formatting characters
+  - see issue: https://github.com/veekun/pokedex/issues/218#issuecomment-339841781
 - [x] Move error and loading components to common (from Search)
 - [x] turn list into it's own component
 - [x] global sass variables

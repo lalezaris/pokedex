@@ -69,6 +69,11 @@
     background-color: $gray;
     box-shadow: 0 0 0.125rem 0.125rem #fff8 inset;
     padding: 0 0.5rem;
+    text-transform: uppercase;
+
+    &:not(:first-child) {
+      margin-left: 0.5rem;
+    }
   }
 }
 
