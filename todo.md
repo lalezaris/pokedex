@@ -24,9 +24,8 @@
 
 # Backlog
 
+- [x] basic pokemon information page
 - [ ] expand documentation (readme)
-- [ ] persist history across sessions
-- [ ] basic pokemon information page
   - able to click on pokemon to view details
   - type, description, height, weight, etc
   - add router and basic navigation to navigate back to main/overview screen
@@ -50,6 +49,7 @@
   - see issue: https://github.com/veekun/pokedex/issues/218#issuecomment-339841781
 - [ ] make height/weight table more accessible
   - should have accessible table headers and things
+- [ ] persist history across sessions
 - [x] Move error and loading components to common (from Search)
 - [x] turn list into it's own component
 - [x] global sass variables
