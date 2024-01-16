@@ -1,7 +1,7 @@
 import React from "react"
 import { renderWithProviders } from "../../utils/testUtils"
 import Info from "./Info"
-import { fireEvent, screen } from "@testing-library/dom"
+import { screen } from "@testing-library/dom"
 import { server } from "../../mocks/node"
 import { HttpResponse, http } from "msw"
 import { BASE_URL } from "../../mocks/handlers"
