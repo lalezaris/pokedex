@@ -25,10 +25,10 @@
 # Backlog
 
 - [x] basic pokemon information page
-- [ ] expand documentation (readme)
   - able to click on pokemon to view details
   - type, description, height, weight, etc
   - add router and basic navigation to navigate back to main/overview screen
+- [x] expand documentation (readme)
 - [ ] add abilities to details page
 - [ ] attack moves to details page
 - [ ] evolution chain to details page
