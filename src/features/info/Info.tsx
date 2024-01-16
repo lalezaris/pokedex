@@ -17,13 +17,10 @@ const Info = () => {
     return <Loading />
   }
 
-  if (isError) {
+  if (isError || !data) {
     return <Error />
   }
 
-  if (!data) {
-    return <div>pokemon not found</div>
-  }
   return (
     <div className={styles.infoPane}>
       <div className={styles.sprite}>

@@ -20,7 +20,6 @@ describe("Details", () => {
     expect(screen.queryByRole("img")).not.toBeInTheDocument()
   })
   it("shows error message if species detail call fails", async () => {
-    renderWithProviders(<Details />)
     server.use(
       http.get(`${BASE_URL}/pokemon-species/:id`, () => {
         return new HttpResponse(null, {
@@ -29,13 +28,13 @@ describe("Details", () => {
         })
       }),
     )
+    renderWithProviders(<Details />)
 
     const errorMsg = "an error occurred"
     expect(screen.queryByText(errorMsg)).not.toBeInTheDocument()
     expect(await screen.findByText(errorMsg)).toBeInTheDocument()
   })
   it("shows error if pokemon detail call fails", async () => {
-    renderWithProviders(<Details />)
     server.use(
       http.get(`${BASE_URL}/pokemon/:id`, () => {
         return new HttpResponse(null, {
@@ -44,14 +43,13 @@ describe("Details", () => {
         })
       }),
     )
+    renderWithProviders(<Details />)
 
     const errorMsg = "an error occurred"
     expect(screen.queryByText(errorMsg)).not.toBeInTheDocument()
     expect(await screen.findByText(errorMsg)).toBeInTheDocument()
   })
   it("Shows no image found if no sprite url", async () => {
-    renderWithProviders(<Details />)
-
     server.use(
       http.get(`${BASE_URL}/pokemon/:id`, () => {
         return HttpResponse.json({
@@ -62,6 +60,7 @@ describe("Details", () => {
         })
       }),
     )
+    renderWithProviders(<Details />)
 
     expect(await screen.findByText("Bulbasaur")).toBeInTheDocument()
     expect(screen.getByText("No sprite found.")).toBeInTheDocument()

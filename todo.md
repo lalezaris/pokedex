@@ -48,6 +48,8 @@
 - [ ] cleanup flavor text
   - flavor text is scraped from rom builds, so contain weird formatting characters
   - see issue: https://github.com/veekun/pokedex/issues/218#issuecomment-339841781
+- [ ] make height/weight table more accessible
+  - should have accessible table headers and things
 - [x] Move error and loading components to common (from Search)
 - [x] turn list into it's own component
 - [x] global sass variables

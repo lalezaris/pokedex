@@ -9,12 +9,10 @@ export const handlers = [
   http.get(`${BASE_URL}/pokemon-species`, () => {
     return HttpResponse.json(pokemonSpecies)
   }),
-  http.get(`${BASE_URL}/pokemon-species/:id`, ({ params }) => {
-    const { id } = params
-    return HttpResponse.json({ ...pokemonSpeciesDetail, id })
+  http.get(`${BASE_URL}/pokemon-species/:id`, () => {
+    return HttpResponse.json(pokemonSpeciesDetail)
   }),
-  http.get(`${BASE_URL}/pokemon/:id`, ({ params }) => {
-    const { id } = params
-    return HttpResponse.json({ ...pokemonDetail, id })
+  http.get(`${BASE_URL}/pokemon/:id`, () => {
+    return HttpResponse.json(pokemonDetail)
   }),
 ]

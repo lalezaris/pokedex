@@ -12,11 +12,13 @@ import { MemoryRouter } from "react-router-dom"
 interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {
   preloadedState?: Partial<RootState>
   store?: AppStore
+  initialEntries?: string[] | undefined
 }
 
 export function renderWithProviders(
   ui: React.ReactElement,
   {
+    initialEntries,
     preloadedState = {},
     // Automatically create a store instance if no store was passed in
     store = setupStore(preloadedState),
@@ -25,9 +27,9 @@ export function renderWithProviders(
 ) {
   function Wrapper({ children }: PropsWithChildren<object>): JSX.Element {
     return (
-      <MemoryRouter>
-        <Provider store={store}>{children}</Provider>
-      </MemoryRouter>
+      <Provider store={store}>
+        <MemoryRouter initialEntries={initialEntries}>{children}</MemoryRouter>
+      </Provider>
     )
   }
   return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) }
